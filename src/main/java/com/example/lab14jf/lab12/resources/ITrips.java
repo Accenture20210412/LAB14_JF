@@ -11,7 +11,7 @@ import java.util.Map;
 
 public interface ITrips {
 
-    Map<Trip, List<Customer>> getTrips();
+    Map<Trip, List<Integer>> getTrips();
 
     boolean add(Trip trip);
 

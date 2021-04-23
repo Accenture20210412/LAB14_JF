@@ -26,7 +26,7 @@ public class TripController {
 
     }
     @GetMapping
-    public Map<Trip, List<Customer>> display() {
+    public Map<Trip, List<Integer>> display() {
         add();
         return trips.getTrips();
     }

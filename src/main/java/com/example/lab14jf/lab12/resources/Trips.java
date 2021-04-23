@@ -19,6 +19,7 @@ public class Trips implements ITrips {
 
     Map<Trip, List<Integer>> trips = new LinkedHashMap<>();
 
+
     @Override
    public boolean add(Trip trip) {
         if(trips.containsKey(trip)){
