@@ -24,6 +24,10 @@ public class CustomerController {
     public List<Customer> getAllCustomers() {
         return this.customers.getCustomers();
     }
+    @GetMapping()
+    public Customer getCustomerById(int id) {
+        return customers.getById(id);
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -38,7 +42,7 @@ public class CustomerController {
     }
 
 
-    @DeleteMapping("/deleteByName/{name}")
+    @DeleteMapping("/{name}")
     @ResponseStatus(HttpStatus.GONE)
     public void removeByName(@PathVariable String name) {
         List<Customer> matchingResults = customers.contain(name);

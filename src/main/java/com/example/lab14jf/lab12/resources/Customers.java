@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Getter
@@ -46,6 +47,14 @@ public class Customers implements ICustomers {
                 .filter(n -> isMatching(name, n))
                 .collect(Collectors.toList());
         return collect;
+    }
+
+    @Override
+    public Customer getById(int id) {
+        Optional<Customer> customer = customers.stream()
+                .filter(c -> c.getId() == id)
+                .findAny();
+        return customer.get();
     }
 
     private boolean isMatching(String name, Customer n) {

@@ -37,13 +37,24 @@ public class TripController {
         trips.add(trip);
     }
 
-    @GetMapping("/tripsByName/{name}")
+    @GetMapping("/name/{name}")
     public List<Trip> findByName(@PathVariable String name) {
         return trips.findByName(name);
     }
 
-    @GetMapping("/tripsByDestination/{destination}")
+    @GetMapping("/destination/{destination}")
     List<Trip> findByDestination(@PathVariable String destination){
         return trips.findByDestination(destination);
+    }
+
+    @PostMapping("/{id}")
+    void singUp(@RequestBody Trip trip, @PathVariable int id) {
+        trips.singUp(trip, id);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.GONE)
+    void singOut(@RequestBody Trip trip, @PathVariable int id) {
+        trips.singOut(trip,id);
     }
 }

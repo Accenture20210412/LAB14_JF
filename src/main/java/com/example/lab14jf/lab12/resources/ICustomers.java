@@ -17,4 +17,6 @@ public interface ICustomers {
     String display();
 
     List<Customer> contain(String name);
+
+    Customer getById(int id);
 }
