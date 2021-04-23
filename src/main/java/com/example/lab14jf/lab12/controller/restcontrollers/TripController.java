@@ -37,13 +37,13 @@ public class TripController {
         trips.add(trip);
     }
 
-    @GetMapping("/name/{name}")
-    public List<Trip> findByName(@PathVariable String name) {
+    @GetMapping(params = "name")
+    public List<Trip> findByName(@RequestParam(name = "name") String name) {
         return trips.findByName(name);
     }
 
-    @GetMapping("/destination/{destination}")
-    List<Trip> findByDestination(@PathVariable String destination){
+    @GetMapping(params = "destination" )
+    List<Trip> findByDestination(@RequestParam(name = "destination") String destination){
         return trips.findByDestination(destination);
     }
 
