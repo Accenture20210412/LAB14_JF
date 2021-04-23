@@ -17,7 +17,7 @@ public class Trips implements ITrips {
      * Rezygnacja z pola Trip w customers i przypisywanie customerów do mapy
      */
 
-    Map<Trip, List<Customer>> trips = new LinkedHashMap<>();
+    Map<Trip, List<Integer>> trips = new LinkedHashMap<>();
 
     @Override
    public boolean add(Trip trip) {
@@ -59,20 +59,20 @@ public class Trips implements ITrips {
     }
 
     @Override
-    public boolean singUp(Trip trip, Customer customer) {
+    public boolean singUp(Trip trip, int customerId) {
         if (!trips.containsKey(trip)) {
             return false;
         }
-        trips.get(trip).add(customer);
+        trips.get(trip).add(customerId);
         return true;
     }
 
     @Override
-    public boolean singOut(Trip trip, Customer customer) {
+    public boolean singOut(Trip trip, int customerId) {
         if (!trips.containsKey(trip)) {
             return false;
         }
-        trips.get(trip).remove(customer);
+        trips.get(trip).remove(customerId);
         return true;
     }
 

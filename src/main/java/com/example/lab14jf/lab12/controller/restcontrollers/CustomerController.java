@@ -1,7 +1,9 @@
 package com.example.lab14jf.lab12.controller.restcontrollers;
 
 
+import com.example.lab14jf.lab12.controller.IMainController;
 import com.example.lab14jf.lab12.model.Customer;
+import com.example.lab14jf.lab12.model.trip.Trip;
 import com.example.lab14jf.lab12.resources.ICustomers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,23 +12,39 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/customers")
 public class CustomerController {
 
-    public void adddd(){
-        customers.add(new Customer("imie", "nazwisko", "adres"));
-    }
+
     @Autowired
     private ICustomers customers;
 
-    @GetMapping("/customers")
+
+    @GetMapping
     public List<Customer> getAllCustomers() {
-        adddd();
         return this.customers.getCustomers();
     }
 
-    @PostMapping("/addCustomer")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void addOne(@RequestBody  Customer customer) {
         customers.add(customer);
     }
+
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.GONE)
+    public void removeOne(@RequestBody Customer customer) {
+        customers.remove(customer);
+    }
+
+
+    @DeleteMapping("/deleteByName/{name}")
+    @ResponseStatus(HttpStatus.GONE)
+    public void removeByName(@PathVariable String name) {
+        List<Customer> matchingResults = customers.contain(name);
+        Customer customer = matchingResults.get(0);
+        customers.remove(customer);
+    }
+
+
 }

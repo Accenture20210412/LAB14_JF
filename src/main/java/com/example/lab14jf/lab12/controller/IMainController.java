@@ -12,14 +12,14 @@ public interface IMainController {
 
     void removeCustomer(String name);
 
-    void signUp(Customer customer, Trip trip);
+    void signUp(int customerId, Trip trip);
 
     /**
      * Decyzja o dodatkowej opcji wypisania customera z wycieczki
      * @param customer
      * @param trip
      */
-    void signOut(Customer customer, Trip trip);
+    void signOut(int customerId, Trip trip);
 
     void displayCustomers();
 

@@ -7,8 +7,11 @@ import com.example.lab14jf.lab12.model.trip.Trip;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 public interface ITrips {
+
+    Map<Trip, List<Customer>> getTrips();
 
     boolean add(Trip trip);
 
@@ -18,7 +21,7 @@ public interface ITrips {
 
     List<Trip> findByDestination(String destination);
 
-    boolean singUp(Trip trip, Customer customer);
+    boolean singUp(Trip trip, int customerID);
 
-    boolean singOut(Trip trip, Customer customer);
+    boolean singOut(Trip trip, int customerId);
 }

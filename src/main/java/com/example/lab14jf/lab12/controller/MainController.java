@@ -43,16 +43,16 @@ public class MainController implements IMainController {
 
 
     @Override
-    public void signUp(Customer customer, Trip trip) {
-        if(trips.singUp(trip, customer)){
+    public void signUp(int customerId, Trip trip) {
+        if(trips.singUp(trip, customerId)){
             System.out.println("Customer signed up.");
         }
         System.out.println("Operation failed");
     }
 
     @Override
-    public void signOut(Customer customer, Trip trip){
-        if(trips.singOut(trip, customer)){
+    public void signOut(int customerId, Trip trip){
+        if(trips.singOut(trip, customerId)){
             System.out.println("Customer signed out");
         }
         System.out.println("Operation failed");
