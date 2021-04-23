@@ -3,12 +3,14 @@ package com.example.lab14jf.lab12.resources;
 import com.example.lab14jf.lab12.model.Customer;
 import com.example.lab14jf.lab12.model.trip.Trip;
 import lombok.Getter;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Getter
+@Repository
 
 public class Trips implements ITrips {
     /**

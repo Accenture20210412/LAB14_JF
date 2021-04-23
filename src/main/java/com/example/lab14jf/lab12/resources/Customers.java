@@ -3,6 +3,7 @@ package com.example.lab14jf.lab12.resources;
 
 import com.example.lab14jf.lab12.model.Customer;
 import lombok.Getter;
+import org.springframework.stereotype.Repository;
 
 
 import java.util.LinkedList;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
+@Repository
 
 public class Customers implements ICustomers {
 

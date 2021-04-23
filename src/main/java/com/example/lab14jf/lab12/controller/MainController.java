@@ -3,20 +3,20 @@ package com.example.lab14jf.lab12.controller;
 
 import com.example.lab14jf.lab12.model.Customer;
 import com.example.lab14jf.lab12.model.trip.Trip;
-import com.example.lab14jf.lab12.resources.Customers;
 import com.example.lab14jf.lab12.resources.ICustomers;
 import com.example.lab14jf.lab12.resources.ITrips;
-import com.example.lab14jf.lab12.resources.Trips;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import java.time.LocalDate;
 import java.util.List;
 
 
-
 public class MainController implements IMainController {
 
-    private ICustomers customers = new Customers();
-    private ITrips trips = new Trips();
+
+    private ICustomers customers;
+    private ITrips trips;
 
 
     @Override

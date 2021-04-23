@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface ICustomers {
 
+    List<Customer> getCustomers();
+
     void add(Customer customer);
 
     void remove(Customer customer);
